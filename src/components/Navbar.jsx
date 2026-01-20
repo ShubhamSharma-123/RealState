@@ -150,9 +150,10 @@
 
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { Home, Search, PlusCircle, ListChecks, LogOut, User, Compass } from 'lucide-react';
+import { Home, Search, PlusCircle, ListChecks, LogOut, User, Compass, Store } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import logo from '../assets/main-logo.webp'
 
 export function Navbar() {
   const { user, logout } = useAuth();
@@ -183,12 +184,8 @@ export function Navbar() {
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center space-x-2"
               >
-                <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
-                  <Home className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-2xl font-bold text-gray-900">
-                  Prime<span className="text-red-600">Estate</span>
-                </span>
+               
+                <img src={logo} alt="Apna Awas Logo" className='h-12'/>
               </motion.div>
             </Link>
 
@@ -199,6 +196,22 @@ export function Navbar() {
                   className="text-gray-700 font-medium cursor-pointer"
                 >
                   Home
+                </motion.span>
+              </Link>
+              <Link to="/about-us">
+                <motion.span
+                  whileHover={{ color: '#dc2626' }}
+                  className="text-gray-700 font-medium cursor-pointer"
+                >
+                  About Us
+                </motion.span>
+              </Link>
+              <Link to="/contact-us">
+                <motion.span
+                  whileHover={{ color: '#dc2626' }}
+                  className="text-gray-700 font-medium cursor-pointer"
+                >
+                  Contact Us
                 </motion.span>
               </Link>
               <Link to="/properties">
@@ -259,10 +272,12 @@ export function Navbar() {
                       animate={{ opacity: 1, y: 0 }}
                       className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2"
                     >
+                      <a href="/profile">
                       <div className="px-4 py-2 border-b border-gray-200">
                         <p className="text-sm font-medium text-gray-900">{user.name}</p>
                         <p className="text-xs text-gray-500">{user.role}</p>
                       </div>
+                      </a>
                       <button
                         onClick={handleLogout}
                         className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
@@ -312,6 +327,32 @@ export function Navbar() {
             >
               <Home className="w-6 h-6" />
               <span className="text-xs font-medium mt-1">Home</span>
+            </motion.button>
+          </Link>
+
+          <Link to="/about-us">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className={`flex flex-col items-center justify-center w-14 h-14 rounded-lg transition ${
+                isActive('/about-us') ? 'bg-red-100 text-red-600' : 'text-gray-600 hover:text-red-600'
+              }`}
+            >
+              <Store className="w-6 h-6" />
+              <span className="text-xs font-medium mt-1">About</span>
+            </motion.button>
+          </Link>
+
+          <Link to="/contact-us">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className={`flex flex-col items-center justify-center w-14 h-14 rounded-lg transition ${
+                isActive('/contact-us') ? 'bg-red-100 text-red-600' : 'text-gray-600 hover:text-red-600'
+              }`}
+            >
+              <Store className="w-6 h-6" />
+              <span className="text-xs font-medium mt-1">Contact</span>
             </motion.button>
           </Link>
 
@@ -377,10 +418,12 @@ export function Navbar() {
               >
                 {user ? (
                   <>
+                    <a href="/profile">
                     <div className="px-4 py-3 border-b border-gray-200">
                       <p className="text-sm font-semibold text-gray-900">{user.name}</p>
                       <p className="text-xs text-gray-500 mt-1">{user.role}</p>
                     </div>
+                    </a>
                     <button
                       onClick={handleLogout}
                       className="w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-red-50 flex items-center space-x-2 border-t border-gray-200"
@@ -417,7 +460,9 @@ export function Navbar() {
         </div>
       </nav>
 
-      <div className="md:hidden h-16" />
+      <div className="md:hidden h-16" >
+        <img src={logo} alt="" className='h-16' />
+        </div>
     </>
   );
 }
