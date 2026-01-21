@@ -272,7 +272,7 @@ export function Navbar() {
                       animate={{ opacity: 1, y: 0 }}
                       className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2"
                     >
-                      <Link href="/profile">
+                      <Link to="/profile">
                       <div className="px-4 py-2 border-b border-gray-200">
                         <p className="text-sm font-medium text-gray-900">{user.name}</p>
                         <p className="text-xs text-gray-500">{user.role}</p>
@@ -418,7 +418,7 @@ export function Navbar() {
               >
                 {user ? (
                   <>
-                    <Link href="/profile">
+                    <Link to="/profile">
                     <div className="px-4 py-3 border-b border-gray-200">
                       <p className="text-sm font-semibold text-gray-900">{user.name}</p>
                       <p className="text-xs text-gray-500 mt-1">{user.role}</p>
