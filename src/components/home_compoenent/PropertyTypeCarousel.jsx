@@ -186,7 +186,7 @@ export function PropertyTypeCarousel() {
             href="#"
             className="hidden md:flex items-center gap-2 text-gray-900 font-semibold border-b-2 border-red-600 pb-1"
           >
-            View All Services <ArrowRight size={18} />
+            View All <ArrowRight size={18} />
           </a>
         </div>
 
