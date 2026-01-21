@@ -272,12 +272,12 @@ export function Navbar() {
                       animate={{ opacity: 1, y: 0 }}
                       className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2"
                     >
-                      <a href="/profile">
+                      <Link href="/profile">
                       <div className="px-4 py-2 border-b border-gray-200">
                         <p className="text-sm font-medium text-gray-900">{user.name}</p>
                         <p className="text-xs text-gray-500">{user.role}</p>
                       </div>
-                      </a>
+                      </Link>
                       <button
                         onClick={handleLogout}
                         className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
@@ -418,12 +418,12 @@ export function Navbar() {
               >
                 {user ? (
                   <>
-                    <a href="/profile">
+                    <Link href="/profile">
                     <div className="px-4 py-3 border-b border-gray-200">
                       <p className="text-sm font-semibold text-gray-900">{user.name}</p>
                       <p className="text-xs text-gray-500 mt-1">{user.role}</p>
                     </div>
-                    </a>
+                    </Link>
                     <button
                       onClick={handleLogout}
                       className="w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-red-50 flex items-center space-x-2 border-t border-gray-200"
